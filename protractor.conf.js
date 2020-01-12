@@ -2,18 +2,17 @@ const path = require('path');
 
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
-
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
-
-
+  // restartBrowserBetweenTests: true,
+  // SELENIUM_PROMISE_MANAGER: false, // for async/await functions
   multiCapabilities: [{
     browserName: 'chrome',
     shardTestFiles: true,
-    maxInstances: 2,
+    maxInstances: 1,
     chromeOptions: {
         args: ['disable-infobars',
-        // "incognito"
+        //  "incognito"
       ]
     }
 }],
@@ -35,7 +34,7 @@ exports.config = {
     options:{
       automaticallyGenerateReport: true,
       removeExistingJsonReportFile: true,
-      openReportInBrowser: true
+      // openReportInBrowser: true
     }
 }]
 }

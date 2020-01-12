@@ -1,7 +1,7 @@
 var chai = require('chai').use(require('chai-as-promised'));
 var expect = chai.expect;
 
-var olx_steps = function(){
+var olx_action_steps = function () {
   var olx_page = require("../pages/olx.js");
 
   this.World = function MyWorld() {
@@ -10,11 +10,28 @@ var olx_steps = function(){
 
   this.Given('User navigates to main OLX page', function (callback) {
     this.page.getURL();
+    // browser.sleep(3000);
     callback();
   });
+
+  // this.When('I click Go', function (callback) {
+  //   this.page.clickGo();
+  //   callback();
+  // });
+
+  this.When('I click $locator', function (locator, callback) {
+    element(by.id(locator)).click();
+    console.log('Click_step', locator);
+    // browser.sleep(1000);
+    callback();
+  });
+
+  // this.When('I wait $seconds', function (seconds){
+  //   browser.sleep(seconds*100000);
+  // })
 };
 
-module.exports = olx_steps;
+module.exports = olx_action_steps;
 
 // var CalculatorSteps = function() {
 

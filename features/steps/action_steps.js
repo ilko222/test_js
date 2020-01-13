@@ -12,16 +12,7 @@ var olx_action_steps = function () {
     browser.driver.ignoreSynchronization = true;
     browser.waitForAngularEnabled(false);
     this.page.getURL();
-    // browser.waitForAngular();
-    // browser.sleep(3000);
-    browser.driver.sleep(8000).then(function(){
-      console.log("Waiting");
-    });
-    browser.sleep(35000).then(
-      function(){
-         console.log("Waiting22222");
-      }
-    )
+    browser.driver.sleep(8000)
     callback();
   });
 
@@ -32,14 +23,15 @@ var olx_action_steps = function () {
 
   this.When('I click $locator', function (locator, callback) {
     element(by.id(locator)).click();
-    console.log('Click_step', locator);
-    // browser.sleep(1000);
+    console.log(locator);
+    browser.driver.sleep(1000);
     callback();
   });
 
-  // this.When('I wait $seconds', function (seconds){
-  //   browser.sleep(seconds*100000);
-  // })
+  this.When('I wait $seconds', function (seconds){
+    browser.driver.sleep(seconds*1000);
+    console.log(seconds);
+  })
 };
 
 module.exports = olx_action_steps;

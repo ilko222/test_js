@@ -9,8 +9,19 @@ var olx_action_steps = function () {
   };
 
   this.Given('User navigates to main OLX page', function (callback) {
+    browser.driver.ignoreSynchronization = true;
+    browser.waitForAngularEnabled(false);
     this.page.getURL();
+    // browser.waitForAngular();
     // browser.sleep(3000);
+    browser.driver.sleep(8000).then(function(){
+      console.log("Waiting");
+    });
+    browser.sleep(35000).then(
+      function(){
+         console.log("Waiting22222");
+      }
+    )
     callback();
   });
 

@@ -11,8 +11,8 @@ exports.config = {
     shardTestFiles: true,
     maxInstances: 1,
     chromeOptions: {
-        args: ['disable-infobars',
-        //  "incognito"
+        args: ["disable-infobars", "incognito",
+        // "headless"
       ]
     }
 }],
@@ -27,7 +27,9 @@ exports.config = {
   ],
     require: 'features/steps/*_steps.js',
     format: 'json:reports/results.json',
-    strict: true
+    strict: true,
+    defaultTimeout: 10000,
+    'fail-fast': true
   },
   plugins: [{
     package: 'protractor-multiple-cucumber-html-reporter-plugin',

@@ -24,7 +24,7 @@ Before(function () {
 Before((scenario) => {
     if (browser.params.env == "LOCAL") {
         const scenarioName = scenario.pickle.name;
-        console.log('\x1b[35m',scenarioName);
+        console.log('\x1b[35m'+'\n',scenarioName);
     }
 });
 
